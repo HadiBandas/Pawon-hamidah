@@ -72,6 +72,14 @@
             transform: scale(200) translate(-50%, -50%);
             opacity: 1;
         }
+
+        /* Disabled button styling */
+        .btn-primary:disabled {
+            background: #a1a1aa; /* Gray-400 */
+            cursor: not-allowed;
+            opacity: 0.7;
+            box-shadow: none;
+        }
         
         /* Secondary button styling with transparency and blur */
         .btn-secondary {
@@ -118,6 +126,31 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
         }
+
+        /* Floating WhatsApp button styling */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: #25d366; /* WhatsApp green */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .floating-whatsapp:hover {
+            background: #1da851;
+            transform: scale(1.05);
+        }
         
         /* Price highlight styling with text clip and gradient */
         .price-highlight {
@@ -139,6 +172,13 @@
         @media (max-width: 768px) {
             .hero-bg {
                 background-attachment: scroll; /* Disable parallax on mobile */
+            }
+            .floating-whatsapp {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+                bottom: 1.5rem;
+                left: 1.5rem;
             }
         }
         
@@ -274,9 +314,8 @@
                 </a></li>
             </ul>
 
-            <!-- CTA Button -->
-            <a href="https://wa.me/6281224333610" target="_blank" rel="noopener noreferrer" 
-               class="hidden md:block btn-primary text-white font-semibold py-3 px-6 rounded-full shadow-lg">
+            <!-- CTA Button (scrolls to contact form) -->
+            <a href="#kontak" class="hidden md:block btn-primary text-white font-semibold py-3 px-6 rounded-full shadow-lg">
                 Pesan Sekarang!
             </a>
 
@@ -297,8 +336,8 @@
                 <a href="#testimoni" class="block px-3 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">Testimoni</a>
                 <a href="#kontak" class="block px-3 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 rounded-lg transition-colors">Kontak</a>
                 <div class="pt-2">
-                    <a href="https://wa.me/6281224333610" target="_blank" rel="noopener noreferrer" 
-                       class="block text-center btn-primary text-white font-semibold py-3 px-6 rounded-full shadow-lg mx-3">
+                    <!-- Changed to scroll to contact form -->
+                    <a href="#kontak" class="block text-center btn-primary text-white font-semibold py-3 px-6 rounded-full shadow-lg mx-3">
                         Pesan Sekarang!
                     </a>
                 </div>
@@ -336,8 +375,8 @@
                 <a href="#menu" class="btn-primary text-white font-semibold py-4 px-8 rounded-full shadow-xl text-lg">
                     Lihat Menu Lengkap
                 </a>
-                <a href="https://wa.me/6281224333610" target="_blank" rel="noopener noreferrer" 
-                   class="btn-secondary text-green-700 font-semibold py-4 px-8 rounded-full shadow-xl text-lg">
+                <!-- Changed to scroll to contact form -->
+                <a href="#kontak" class="btn-secondary text-green-700 font-semibold py-4 px-8 rounded-full shadow-xl text-lg">
                     Pesan Via WhatsApp
                 </a>
             </div>
@@ -434,10 +473,10 @@
                             <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Sayur Segar Pilihan</li>
                             <li class="flex items-center"><span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>Sambal + Kerupuk</li>
                         </ul>
-                        <a href="https://wa.me/6281224333610" target="_blank" rel="noopener noreferrer" 
-                           class="btn-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg">
+                        <!-- Button to scroll and pre-fill form -->
+                        <button type="button" class="btn-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg select-package-btn" data-package-value="Paket Sehat Barokah - Rp 35.000">
                            Pesan Paket Ini
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -456,10 +495,10 @@
                             <li class="flex items-center"><span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>Sayur Segar Istimewa</li>
                             <li class="flex items-center"><span class="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>Perkedel + Sambal + Kerupuk</li>
                         </ul>
-                        <a href="https://wa.me/6281224333610" target="_blank" rel="noopener noreferrer" 
-                           class="btn-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg">
+                        <!-- Button to scroll and pre-fill form -->
+                        <button type="button" class="btn-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg select-package-btn" data-package-value="Paket Ngeunah Sagala Aya - Rp 45.000">
                             Pesan Paket Ini
-                        </a>
+                        </button>
                     </div>
                 </div>
 
@@ -479,10 +518,10 @@
                             <li class="flex items-center"><span class="w-2 h-2 bg-indigo-500 rounded-full mr-3"></span>Sayur Pilihan Spesial</li>
                             <li class="flex items-center"><span class="w-2 h-2 bg-indigo-500 rounded-full mr-3"></span>Perkedel Jagung + Sambal + Kerupuk</li>
                         </ul>
-                        <a href="https://wa.me/6281224333610" target="_blank" rel="noopener noreferrer" 
-                           class="btn-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg">
+                        <!-- Button to scroll and pre-fill form -->
+                        <button type="button" class="btn-primary text-white font-semibold py-3 px-8 rounded-full shadow-lg select-package-btn" data-package-value="Paket Istimewa Khas Parahyangan - Rp 55.000">
                             Pesan Paket Ini
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -534,8 +573,8 @@
         </div>
 
         <div class="text-center mt-12">
-            <a href="https://wa.me/6281224333610" target="_blank" rel="noopener noreferrer" 
-               class="btn-primary text-white font-semibold py-4 px-10 rounded-full shadow-xl text-lg">
+            <!-- Button to scroll to contact form -->
+            <a href="#kontak" class="btn-primary text-white font-semibold py-4 px-10 rounded-full shadow-xl text-lg">
                 Mulai Pesan Sekarang!
             </a>
         </div>
@@ -689,41 +728,48 @@
             </div>
 
             <!-- Quick Order Form -->
-            <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+            <div id="kontak-form" class="bg-white rounded-2xl shadow-lg p-8 card-hover">
                 <h3 class="text-2xl font-bold text-green-700 mb-6">Pesan Cepat</h3>
                 
                 <div class="space-y-6">
                     <div>
-                        <label class="block text-gray-700 font-semibold mb-2">Nama Perusahaan</label>
-                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Masukkan nama perusahaan">
+                        <label for="full-name" class="block text-gray-700 font-semibold mb-2">Nama Pemesan (Lengkap)</label>
+                        <input type="text" id="full-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Masukkan nama lengkap Anda">
                     </div>
 
                     <div>
-                        <label class="block text-gray-700 font-semibold mb-2">Pilih Paket</label>
-                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                            <option>Paket Sehat Barokah - Rp 35.000</option>
-                            <option>Paket Ngeunah Sagala Aya - Rp 45.000</option>
-                            <option>Paket Istimewa Khas Parahyangan - Rp 55.000</option>
+                        <label for="company-group-name" class="block text-gray-700 font-semibold mb-2">Nama Perusahaan/Group</label>
+                        <input type="text" id="company-group-name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Masukkan nama perusahaan atau grup">
+                    </div>
+
+                    <div>
+                        <label for="package-select" class="block text-gray-700 font-semibold mb-2">Pilih Paket</label>
+                        <select id="package-select" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <option value="Paket Sehat Barokah - Rp 35.000">Paket Sehat Barokah - Rp 35.000</option>
+                            <option value="Paket Ngeunah Sagala Aya - Rp 45.000">Paket Ngeunah Sagala Aya - Rp 45.000</option>
+                            <option value="Paket Istimewa Khas Parahyangan - Rp 55.000">Paket Istimewa Khas Parahyangan - Rp 55.000</option>
                         </select>
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-gray-700 font-semibold mb-2">Jumlah Porsi</label>
-                            <input type="number" min="10" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="10">
+                            <label for="quantity-input" class="block text-gray-700 font-semibold mb-2">Jumlah Porsi</label>
+                            <input type="number" id="quantity-input" min="1" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Minimal 10">
+                            <p id="quantity-warning" class="text-sm text-red-500 mt-1 hidden">Order minimal 10</p>
                         </div>
                         <div>
-                            <label class="block text-gray-700 font-semibold mb-2">Tanggal Kirim</label>
-                            <input type="date" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <label for="date-input" class="block text-gray-700 font-semibold mb-2">Tanggal Kirim</label>
+                            <input type="date" id="date-input" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <p id="date-warning" class="text-sm text-red-500 mt-1 hidden">Pesanan minimal H-3 dari tanggal pengiriman.</p>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-gray-700 font-semibold mb-2">Alamat Pengiriman</label>
-                        <textarea rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Masukkan alamat lengkap pengiriman"></textarea>
+                        <label for="address-input" class="block text-gray-700 font-semibold mb-2">Alamat Pengiriman</label>
+                        <textarea id="address-input" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Masukkan alamat lengkap pengiriman"></textarea>
                     </div>
 
-                    <button type="button" id="order-whatsapp-btn" class="w-full btn-primary text-white font-semibold py-4 px-6 rounded-lg shadow-lg">
+                    <button type="button" id="order-whatsapp-btn" class="w-full btn-primary text-white font-semibold py-4 px-6 rounded-lg shadow-lg" disabled>
                         Kirim Pesanan via WhatsApp
                     </button>
                 </div>
@@ -805,6 +851,11 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
         </svg>
     </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a class="floating-whatsapp" href="https://wa.me/6281224333610?text=Halo%20Pawon%20Hamidah%2C%20saya%20ingin%20melakukan%20pemesanan" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- GSAP CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
@@ -925,31 +976,155 @@
             });
         });
 
-        // WhatsApp message sender
-        function sendWhatsAppMessage() {
-            const company = document.querySelector('input[placeholder="Masukkan nama perusahaan"]').value;
-            const package = document.querySelector('select').value;
-            const quantity = document.querySelector('input[type="number"]').value;
-            const date = document.querySelector('input[type="date"]').value;
-            const address = document.querySelector('textarea').value;
+        // Form elements
+        const fullNameInput = document.getElementById('full-name'); // New: Full Name Input
+        const companyGroupInput = document.getElementById('company-group-name'); // Renamed: Company/Group Name Input
+        const packageSelect = document.getElementById('package-select');
+        const quantityInput = document.getElementById('quantity-input');
+        const dateInput = document.getElementById('date-input');
+        const addressInput = document.getElementById('address-input');
+        const dateWarning = document.getElementById('date-warning');
+        const quantityWarning = document.getElementById('quantity-warning'); 
+        const orderWhatsappBtn = document.getElementById('order-whatsapp-btn');
+        // Floating WhatsApp button is now a direct link in HTML
 
-            if (!company || !quantity || !date || !address) {
-                // Custom alert message box instead of native alert()
-                showCustomAlert('Mohon lengkapi semua field yang diperlukan!');
+        // Package prices data
+        const packagePrices = {
+            "Paket Sehat Barokah - Rp 35.000": 35000,
+            "Paket Ngeunah Sagala Aya - Rp 45.000": 45000,
+            "Paket Istimewa Khas Parahyangan - Rp 55.000": 55000
+        };
+
+        // Variables to hold calculated values for WhatsApp message
+        let calculatedTotalPrice = 0;
+        let calculatedDpAmount = 0;
+
+        // Function to check if all form fields are valid and enable/disable button
+        function checkFormValidity() {
+            const fullNameFilled = fullNameInput.value.trim() !== ''; // Validate new full name field
+            const companyGroupFilled = companyGroupInput.value.trim() !== ''; // Validate renamed company/group field
+            const quantityValue = parseInt(quantityInput.value);
+            const quantityValid = quantityValue >= 10; 
+            const dateFilled = dateInput.value.trim() !== '';
+            const addressFilled = addressInput.value.trim() !== '';
+
+            // Update quantity warning message
+            if (quantityInput.value.trim() !== '' && quantityValue < 10) {
+                quantityWarning.classList.remove('hidden');
+            } else {
+                quantityWarning.classList.add('hidden');
+            }
+
+            // Date validation (H-3 logic)
+            let isDateValid = true;
+            if (dateFilled) {
+                const deliveryDate = new Date(dateInput.value);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0); 
+
+                const diffTime = deliveryDate.getTime() - today.getTime();
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+                if (diffDays < 3) { 
+                    dateWarning.classList.remove('hidden');
+                    isDateValid = false;
+                } else {
+                    dateWarning.classList.add('hidden');
+                    isDateValid = true;
+                }
+            } else {
+                dateWarning.classList.add('hidden');
+                isDateValid = false;
+            }
+
+            const allFieldsValid = fullNameFilled && companyGroupFilled && quantityValid && dateFilled && addressFilled && isDateValid;
+            orderWhatsappBtn.disabled = !allFieldsValid;
+
+            // Recalculate price if any relevant field changes
+            updateOrderSummaryValues();
+        }
+
+        // Function to update order summary values (for WhatsApp message)
+        function updateOrderSummaryValues() {
+            const selectedPackage = packageSelect.value;
+            const quantity = parseInt(quantityInput.value) || 0;
+            const packagePrice = packagePrices[selectedPackage];
+
+            calculatedTotalPrice = 0;
+            calculatedDpAmount = 0;
+
+            if (quantity > 0 && packagePrice) {
+                calculatedTotalPrice = quantity * packagePrice;
+                calculatedDpAmount = calculatedTotalPrice * 0.5;
+            }
+        }
+
+        // Event listeners for form fields to update summary and check validity
+        fullNameInput.addEventListener('input', checkFormValidity); // Add listener for new field
+        companyGroupInput.addEventListener('input', checkFormValidity); // Update listener for renamed field
+        packageSelect.addEventListener('change', checkFormValidity);
+        quantityInput.addEventListener('input', checkFormValidity);
+        dateInput.addEventListener('change', checkFormValidity);
+        addressInput.addEventListener('input', checkFormValidity);
+
+        // Initial call to check form validity and update summary on load
+        window.addEventListener('load', checkFormValidity); 
+
+        // Handle "Pesan Paket Ini" buttons to scroll and pre-fill
+        document.querySelectorAll('.select-package-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const packageValue = this.dataset.packageValue;
+                packageSelect.value = packageValue;
+                checkFormValidity(); 
+
+                // Scroll to the kontak form
+                const kontakForm = document.getElementById('kontak-form');
+                if (kontakForm) {
+                    gsap.to(window, { duration: 1, scrollTo: { y: kontakForm.offsetTop, autoKill: false }, ease: "power2.inOut" });
+                }
+            });
+        });
+
+        // WhatsApp message sender (modified with icons and dynamic values)
+        function sendWhatsAppMessage() {
+            checkFormValidity(); // Check form validity one last time
+
+            if (orderWhatsappBtn.disabled) {
+                showCustomAlert('Mohon di isi terlebih dahulu form pemesanannya.');
                 return;
             }
 
+            const fullName = fullNameInput.value.trim(); // Get value from new full name field
+            const companyGroup = companyGroupInput.value.trim(); // Get value from renamed company/group field
+            const selectedPackage = packageSelect.value;
+            const quantity = quantityInput.value;
+            const deliveryDate = dateInput.value;
+            const address = addressInput.value.trim();
+
+            const today = new Date();
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            const orderDateFormatted = today.toLocaleDateString('id-ID', options);
+
+            const formattedTotalPrice = `Rp ${calculatedTotalPrice.toLocaleString('id-ID')}`;
+            const formattedDpAmount = `Rp ${calculatedDpAmount.toLocaleString('id-ID')}`;
+            
             const message = `Halo Pawon Hamidah! 🍽️
 
-Saya ingin memesan katering untuk kantor:
-
-🏢 Nama Perusahaan: ${company}
-📦 Paket: ${package}
-👥 Jumlah Porsi: ${quantity}
-📅 Tanggal Kirim: ${date}
-📍 Alamat: ${address}
-
-Mohon konfirmasi ketersediaan dan total harga. Terima kasih!`;
+Saya ingin memesan katering untuk kantor:\n
+👤 *Nama Pemesan:* ${fullName}
+🏢 *Nama Perusahaan/Group:* ${companyGroup}
+📦 *Paket:* ${selectedPackage}
+👥 *Jumlah Porsi:* ${quantity} Pcs
+💰 *Total Harga:* ${formattedTotalPrice}
+🗓️ *Tanggal Kirim:* ${deliveryDate}
+📆 *Tanggal Order:* ${orderDateFormatted}
+📍 *Alamat:* ${address}\n
+---
+💸 *DP 50%:* ${formattedDpAmount}
+🏦 *Transfer ke rek:* BCA A/N Hamidah 4490111056
+✅ *Kirimkan Bukti Transfer,* agar bisa segera di proses.
+---
+Mohon konfirmasi ketersediaan dan total harga. Terima kasih! 🙏`;
 
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/6281224333610?text=${encodedMessage}`;
@@ -957,8 +1132,8 @@ Mohon konfirmasi ketersediaan dan total harga. Terima kasih!`;
             window.open(whatsappUrl, '_blank');
         }
 
-        // Add event listener to the WhatsApp order button
-        document.getElementById('order-whatsapp-btn').addEventListener('click', sendWhatsAppMessage);
+        // Add event listener to the main WhatsApp order button
+        orderWhatsappBtn.addEventListener('click', sendWhatsAppMessage);
 
         // Custom alert message box function
         function showCustomAlert(message) {
